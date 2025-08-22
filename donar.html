@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Donar Vida — Reglas</title>
+  <style>
+    body, html {
+      margin: 0;
+      height: 400vh; /* 4 pantallas de scroll */
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      display: none; /* solo se muestra el video activo */
+      transition: opacity 10s ease;
+    }
+
+    section {
+      position: relative;
+      height: 100vh; /* cada mensaje ocupa la pantalla completa */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-shadow: 0 0 15px black;
+      font-size: 1.5rem;
+    }
+
+    .btn-donar {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: crimson;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-donar:hover {
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Videos de fondo -->
+  <video id="borracha" class="video-bg" preload="auto" muted loop>
+    <source src="fto/borracha.mp4" type="video/mp4">
+  </video>
+
+  <video id="hamburguesa" class="video-bg" preload="auto" muted loop>
+    <source src="fto/hamburguesa.mp4" type="video/mp4">
+  </video>
+
+  <video id="tatuaje" class="video-bg" preload="auto" muted loop>
+    <source src="fto/tatuaje.mp4" type="video/mp4">
+  </video>
+
+  <video id="donancion" class="video-bg" preload="auto" muted loop>
+    <source src="fto/donancion.mp4" type="video/mp4">
+  </video>
+
+  <!-- Secciones con las reglas -->
+  <section data-video="borracha">
+    <p>🚫 No consumas alcohol ni drogas 24 horas antes de donar.</p>
+  </section>
+
+  <section data-video="hamburguesa">
+    <p>🍔 Evitá comidas muy grasosas antes de la donación.</p>
+  </section>
+
+  <section data-video="tatuaje">
+    <p>🖋️ Si te hiciste un tatuaje o piercing, esperá 6 meses antes de donar.</p>
+  </section>
+
+  <section data-video="donancion">
+    <div>
+      <h2>👏 ¡Ya estás listo para donar!</h2>
+      <button class="btn-donar" onclick="window.location.href='formulario.html'">
+        Donar Ahora
+      </button>
+    </div>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const videos = document.querySelectorAll(".video-bg");
+
+    function showVideo(id) {
+      videos.forEach(v => v.style.display = "none");
+      const active = document.getElementById(id);
+      if (active) {
+        active.style.display = "block";
+        active.play();
+      }
+    }
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+          current = sec.getAttribute("data-video");
+        }
+      });
+      if (current) showVideo(current);
+    });
+
+    // Mostrar el primer video al cargar
+    showVideo("borracha");
+  </script>
+
+</body>
+</html>
