@@ -1,127 +1,148 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Donar Vida — Reglas</title>
-  <style>
-    body, html {
-      margin: 0;
-      height: 400vh; /* 4 pantallas de scroll */
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="utf-8">
+<title>Donar Vida — Requisitos para Donar Sangre</title>
+<style>
+body {
+margin: 0;
+padding: 0;
+font-family: "Segoe UI", "Arial", sans-serif;
+background-color: #faf7f4;
+color: #222;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
 
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      display: none; /* solo se muestra el video activo */
-      transition: opacity 10s ease;
-    }
+header {
+background-color: #8b0000;
+color: white;
+width: 100%;
+padding: 2rem 1rem;
+}
 
-    section {
-      position: relative;
-      height: 100vh; /* cada mensaje ocupa la pantalla completa */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      box-sizing: border-box;
-      text-shadow: 0 0 15px black;
-      font-size: 1.5rem;
-    }
+header h1 {
+font-size: 2rem;
+margin-bottom: 0.5rem;
+}
 
-    .btn-donar {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background: crimson;
-      border: none;
-      color: white;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
+header p {
+font-size: 1.2rem;
+margin: 0;
+}
 
-    .btn-donar:hover {
-      background: darkred;
-    }
-  </style>
+.contenido {
+background-color: white;
+margin: 2rem;
+padding: 2rem;
+border-radius: 10px;
+max-width: 800px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.contenido img {
+width: 100%;
+max-height: 300px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 1.5rem;
+}
+
+.contenido h2 {
+color: #8b0000;
+font-size: 1.6rem;
+margin-bottom: 1rem;
+}
+
+ul {
+list-style: none;
+padding: 0;
+text-align: left;
+font-size: 1.2rem;
+line-height: 1.8;
+}
+
+ul li {
+margin-bottom: 0.8rem;
+padding-left: 1.2rem;
+position: relative;
+}
+
+ul li::before {
+content: "•";
+color: #8b0000;
+font-weight: bold;
+position: absolute;
+left: 0;
+}
+
+.btn-donar {
+margin-top: 2rem;
+padding: 1rem 3rem;
+font-size: 1.3rem;
+background: #8b0000;
+border: none;
+color: white;
+cursor: pointer;
+border-radius: 8px;
+transition: background 0.3s ease;
+}
+
+.btn-donar:hover {
+background: #a50000;
+}
+
+footer {
+font-size: 1rem;
+color: #555;
+margin: 2rem 0;
+}
+
+@media (max-width: 600px) {
+.contenido {
+margin: 1rem;
+padding: 1rem;
+}
+ul {
+font-size: 1.1rem;
+}
+}
+</style>
 </head>
 <body>
 
-  <!-- Videos de fondo -->
-  <video id="borracha" class="video-bg" preload="auto" muted loop>
-    <source src="borracha.mp4" type="video/mp4">
-  </video>
+<header>
+<h1>Requisitos para Donar Sangre</h1>
+<p>Conocé qué tener en cuenta antes de donar</p>
+</header>
 
-  <video id="hamburguesa" class="video-bg" preload="auto" muted loop>
-    <source src="hamburguesa.mp4" type="video/mp4">
-  </video>
+<div class="contenido">
+<ul>
+<li>Tener entre 18 y 65 años.<li>Si tenés entre 16 y 17 años asistir con la <a href="https://docs.google.com/document/d/1l8Aes5G5jd9AFMPGmr8vKqTPAwvae5Tn/edit?usp=drivesdk&ouid=102354483692438073725&rtpof=true&sd=true" target="_blank">autorización</a> firmada.</li>
 
-  <video id="tatuaje" class="video-bg" preload="auto" muted loop>
-    <source src="tatuaje.mp4" type="video/mp4">
-  </video>
+<li>Concurrir con DNI, Cédula o Pasaporte.</li>
+<li>Pesar más de 50 kilogramos.</li>
+<li>tener buena salud (sin resfríos, alergias ni enfermedades contagiosas).</li>
+<li>Haber descansado bien la noche previa (mínimo 6 horas).</li>
+<li>No consumir alcohol ni drogas 24 horas antes de donar.</li>
+<li>Evitar comidas grasosas antes de la donación.</li>
+<li>Esperar 6 meses si te realizaste un tatuaje o piercing.</li>
+<li>No pertenecer a grupos de riesgo ni haber tenido hepatitis o VIH.</li>
+<li>No haber padecido: Hepatitis después de los 10 años de edad, Chagas, Paludismo, Brucelosis, Sífilis, Tuberculosis.</li>
+</ul>
 
-  <video id="donancion" class="video-bg" preload="auto" muted loop>
-    <source src="donancion.mp4" type="video/mp4">
-  </video>
+<button class="btn-donar" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLScUEsYHZrh9CRGhKqglE76xa0L1EwD8lYm2TmR4xgqtYxybMQ/viewform?usp=header'">
+Quiero Donar
+</button>
+</div>
 
-  <!-- Secciones con las reglas -->
-  <section data-video="borracha">
-    <p>🚫 No consumas alcohol ni drogas 24 horas antes de donar.</p>
-  </section>
-
-  <section data-video="hamburguesa">
-    <p>🍔 Evitá comidas muy grasosas antes de la donación.</p>
-  </section>
-
-  <section data-video="tatuaje">
-    <p>🖋️ Si te hiciste un tatuaje o piercing, esperá 6 meses antes de donar.</p>
-  </section>
-
-  <section data-video="donancion">
-    <div>
-      <h2>👏 ¡Ya estás listo para donar!</h2>
-      <button class="btn-donar" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLScUEsYHZrh9CRGhKqglE76xa0L1EwD8lYm2TmR4xgqtYxybMQ/viewform?usp=header'">
-        Donar Ahora
-      </button>
-    </div>
-  </section>
-
-  <script>
-    const sections = document.querySelectorAll("section");
-    const videos = document.querySelectorAll(".video-bg");
-
-    function showVideo(id) {
-      videos.forEach(v => v.style.display = "none");
-      const active = document.getElementById(id);
-      if (active) {
-        active.style.display = "block";
-        active.play();
-      }
-    }
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-          current = sec.getAttribute("data-video");
-        }
-      });
-      if (current) showVideo(current);
-    });
-
-    // Mostrar el primer video al cargar
-    showVideo("borracha");
-  </script>
+<footer>
+Ante cualquier duda comunicarse a: <br>
+<strong>correo@schonthal.es.edu.ar</strong>
+</footer>
 
 </body>
 </html>
+
